@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="mycustomerloginapp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:mycustomerloginapp"
+    Shell.TabBarIsVisible="False"
+    Title="mycustomerloginapp">
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:LoginPage}"
+        Route="MainPage" />
+
+    <FlyoutItem Route="HomePage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent Title="Home" Icon="{x:Static model:Icons.Dashboard}" ContentTemplate="{DataTemplate Views:HomePage}" />
+        <ShellContent Title="Contact" Icon="{x:Static model:Icons.Cart}" ContentTemplate="{DataTemplate Views:CartPage}" />
+        <ShellContent Title="Contact" Icon="{x:Static model:Icons.ContactUs}" ContentTemplate="{DataTemplate Views:ContactPage}" />
+        <ShellContent Title="About" Icon="{x:Static model:Icons.AboutUs}" ContentTemplate="{DataTemplate Views:AboutPage}" />
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <StackLayout>
+            <Button Text="Sign Out" Command="{Binding SignOutCommand}" BackgroundColor="DarkGreen" />
+        </StackLayout>
+    </Shell.FlyoutFooter>
+
+</Shell>
